@@ -1,0 +1,636 @@
+<!-- TYPICAL HTML STRUCTURE
+    <!DOCTYPE html> == HTML version
+    <html> == root element
+        <head> == information about the page (meta, links, title)
+        <forslash head>
+        <body> == what will be displayed on the page
+            ... page content
+        <forslash body>
+    <forslash html>
+
+    Nice intro Tutorial on HTML + CSS: https://www.youtube.com/watch?v=mU6anWqZJcc
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta tag - metadata in HTML document 
+    specify character set, page description, keywords, author of document, viewport settings-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <!-- title tag - defines the title of the document (used for browser toolbar) -->
+    <title> Sanjay Krishna Portfolio</title>
+
+    <!-- BELOW WILL ADD THE FILE PATH FOR RELATED WEBSITE FILES i.e. CSS, JS -->
+    <!-- Website Icon / Main Button -->
+    <!-- HOW TO CREATE FAVICON! 
+        https://www.lcn.com/blog/beginners-guide-favicons/-->
+    <!-- Downloaded GIMP on Windows ver 2.10.32 -->
+    <!-- The Favicon for brand will be 16 x 16 pixels : https://www.gimp.org/tutorials/Creating_Icons/-->
+    <!-- USED THIS WEBSITE: https://favicon.io/favicon-generator/ -->
+
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+    <!-- Bootstrap CSS-->
+    <!-- "most popular CSS Framework for developing responsive and mobile-first websites" -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CUSTOM Google fonts-->
+    <!-- fonts will be defined in style.default.css -->
+    <!-- https://codepen.io/is_this_taken/pen/ryxOwa -->
+
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/font-mfizz-2.2/font-mfizz.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <!-- Lightbox-->
+    <!-- Lightbox is meant to create a modal image gallery with CSS and Javascript -->
+    <link rel="stylesheet" href="vendor/lightbox2/css/lightbox.min.css">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Leaflet CSS - For the map-->
+    <!-- cdnjs.cloudflare.com is an ultra-fast, reliable, globally available content delivery network for open-source libraries.
+        
+        Cloudflare works with the maintainers of the cdnjs project and distributes the latest versions as they are released. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
+
+    <!-- Favicon-->
+
+    <link rel="shortcut icon" href="favicon-16x16.png">
+
+
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<!-- BOTH PAGE-TOP and INTRO IDS ARE POINTING TO THE SAME LOCATION -->
+
+<body id="page-top">
+    <!-- WHEN ENTERING PORTFOLIO THERE WILL BE A NAVIGATION BEFORE ENTERING ABOUT SECTION -->
+    <header class="header sticky-top">
+        <nav class="navbar navbar-expand-lg bg-white border-bottom py-0 bg-pink">
+            <div class="container"><a class="navbar-brand py-1 bg-pink"></a>
+                <!-- can have href="#intro" -->
+                <a class="navbar-brand js-scroll-trigger text-white nav-name-font" href="#page-top"><b>Sanjay Krishna</b></a>
+                <!-- Allows when clicking name to  -->
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    Menu
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler navbar-toggler-right bg-pink"><span class="fas fa-bars"></span></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto px-3 bg-pink">
+                        <!-- <li class="nav-item active"><a href="#intro" class="nav-link text-uppercase link-scroll">Home</a></li> -->
+                        <li class="nav-item"><a href="#about" class="nav-link text-uppercase link-scroll">About</a></li>
+                        <li class="nav-item"><a href="#services" class="nav-link text-uppercase link-scroll">Skills</a>
+                        </li>
+                        <li class="nav-item"><a href="#portfolio" class="nav-link text-uppercase link-scroll">Resume</a>
+                        </li>
+                        <!-- <li class="nav-item"><a href="#team" class="nav-link text-uppercase link-scroll">Team</a></li> -->
+                        <li class="nav-item"><a href="#contact" class="nav-link text-uppercase link-scroll">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Hero Section-->
+    <!-- the intro/title section for the website -->
+
+    <!-- <div class="content h-100 d-flex align-items-center">
+        <div class="container text-center text-white">
+          <p class="headings-font-family text-uppercase lead"></p> -->
+
+    <header id="intro" class="hero bg-cover bg-lightbeige" style="height: 100px">
+        <div class="overlay"></div>
+        <div class="content h-75 d-flex align-items-center">
+            <div class="container text-center text-white">
+                <p class="headings-font-family text-uppercase lead"></p>
+                <h1 class="text-uppercase hero-text"><span class="font-weight-bold d-block">Sanjay Krishna</span></h1>
+                <!-- <br> </br> -->
+                <h3 class="headings-font-family text-uppercase  text-gray"> <a href="https://www.ee.ucla.edu/compeng/"
+                        target="_blank">Computer Engineering</a> @ University of California, Los Angeles (<a
+                        href="https://www.ucla.edu/" target="_blank">UCLA</a>) </h3>
+            </div>
+
+            <!-- putting a button that will take the user down to the "About" section -->
+            <!-- </div><a href="#about" class="scroll-btn link-scroll"><i class="fas fa-angle-double-down"></i></a> -->
+        </div>
+
+        <div class="form-group col-lg-12 align-items-center">
+            <a href="#about" class="btn btn-outline-primary w-100 link-scroll">Enter Portfolio :)</a>
+        </div>
+
+        <!-- The icons take up the color of the background color -- to show on blank blackground need to change it -->
+
+        <!-- <a href="#about" class="scroll-btn link-scroll"><i class="fa fa-arrow-down" style="font-size:60px;color:lightblue;"></i></a> -->
+    </header>
+
+
+
+    <!-- SECOND NAVIGATION BAR FOR COOL EFFECT, BUT NOT NEEDED -->
+
+    <!-- MOTIVATION FOR COLOR SCHEME: https://www.pinterest.com/pin/63683782214856789/ -- teals, yellows, and grays! -->
+
+    <!-- About Section-->
+    <!-- WILL BE USING CSS IN ORDER TO ADD IN THE BACKGROUND COLORS AND ELEMENTS -->
+    <section id="about" class="bg-light-blue">
+        <div class="container">
+            <!-- <h2 class="lined text-uppercase text-center"> All About Me! </h2> -->
+            <h2 class="text-center"> All About Me! </h2>
+            <br>
+            <br>
+            <br>
+            <!-- <div class="text-center"> -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="center-img"><img class="center-img" src="./images/Sanjay_image.JPG"
+                            style="border:8px solid white; width:350px!important; height:100%"></a>
+
+                        <div id="socials" class="mt-4">
+                            <ul class="mb-0 list-inline text-center">
+                                <li class="list-inline-item"><a href="https://github.com/SanjayKrishnas" target="_blank"
+                                        class="social-link social-link-google-plus"><i class="fab fa-github"></i></a>
+                                </li>
+
+                                <li class="list-inline-item"><a
+                                        href="https://www.linkedin.com/in/sanjay-krishna-05020396/" target="_blank"
+                                        class="social-link social-link-instagram"><i class="fab fa-linkedin"></i></a>
+                                </li>
+
+                                <li class="list-inline-item"><a href="mailto:sanjaykrishna@g.ucla.edu" target="_blank"
+                                        class="social-link social-link-email"><i class="fas fa-envelope"></i></a></li>
+                                    
+                                <!--<li class="list-inline-item"><a href="Suki_Resume.pdf" target="_blank"
+                                        class="social-link social-link-email"><i class="fas fa-file"></i></a></li> -->
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <p> Hello, my name is Sanjay and I am currently studying Computer Engineering and Data Science at the University of California Los Angeles. As an avid programmer and
+                        engineer, I’m very passionate about using CS and Data Science (DS) in order to help solve some
+                        of the world's most interesting problems.</p>
+
+                    <p> I’m interested in exploring and learning about all sorts of technology and software. Some of my
+                        passions for learning surround app development, software engineering, finance, geospatial analysis, computer vision,
+                        renewable energy, and hardware. I find it incredible how CS and DS can be used in so many
+                        intersecting ways and all the opportunities that exist in these fields. I am interested in
+                        pursuing a career in computer science, software engineering, or data science within the tech industry in the future. I am also looking for internships in the intersection of computer software and hardware, working with RISC V or at the bit-wise level of computer architecture.
+                        I’m looking for internships (for Fall 2024 - Summer 2025) in either software
+                        engineering/development or data science so if there are any interesting opportunities I would
+                        love to hear about them through the "Contact Me" message form found at the end of this website!
+
+                    </p>To learn a bit more about me, separate from school, work, and tech, I really enjoy listening to
+                        music on YouTube or Spotify, I love competing in ICPC coding competitions, watching anime and reading in my spare time, and learning about new research in the software and hardware field!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section-->
+    <!-- Great website for getting icons: https://fontawesome.com/search?q=website&o=r 
+    JS Script BELOW -->
+
+    <!-- Can make the boxes into circles??? 
+    https://stackoverflow.com/questions/17431634/how-to-create-a-circular-textarea -->
+    <section id="services" class="bg-beige">
+        <div class="container">
+            <header class="text-center mb-5">
+                <!-- <h2 class="lined text-uppercase"> Skills </h2> -->
+                <h2 class="text-center"> Skills </h2>
+                <h4> Below are some of the skills that I am familiar with, and I'm always looking to learn more.</h4>
+            </header>
+            <div class="row text-center">
+
+                <div class="col-lg-4">
+                    <div class="bg-white mb-4 p-4 rounded-pill">
+
+                        <!-- <span class="service-icon rounded-circle mx-auto mb-3 text-secondary">
+                            <i class="fa fa-dot-circle-o fa-2x" style="padding-top:19px;"></i>
+                        </span> -->
+
+                        <div class="icon-updated mb-4 rb"><i class="fab fa-python icontwo"></i></div>
+                        <h3 class="text-uppercase font-weight-bold"> Python </h3>
+                        <p class="text-black"> 2 years + </p>
+                        <p class="text-darkgray"> Proficient with NumPy, Pandas, sklearn, PyTorch, Flask, matplotlib, seaborn </p>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="bg-white mb-4 p-4 rounded-pill">
+                        <div class="icon-updated mb-4 rb"><i class="fab fa-java icontwo"></i></div>
+                        <h3 class="text-uppercase font-weight-bold"> C++/C#/Java </h3>
+                        <p class="text-black"> 3 years + </p>
+                        <p class="text-darkgray"> Object-oriented programming, Algorithms & Complexity </p>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="bg-white mb-4 p-4 rounded-pill">
+                        <div class="icon-updated mb-4 rb"><i class="fas fa-database icontwo"></i></div>
+                        <h3 class="text-uppercase font-weight-bold"> SQL/R & Tableau</h3>
+                        <p class="text-black"> 1 year + </p>
+                        <p class="text-darkgray"> Proficient with working with relational databases, querying, and performing data analysis. </p>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="bg-white mb-4 p-4 rounded-pill">
+                        <div class="icon-updated mb-4 rb"><i class="fab fa-git icontwo"></i></div>
+                        <h3 class="text-uppercase font-weight-bold"> Git & GitHub </h3>
+                        <p class="text-black"> 2 years + </p>
+                        <p class="text-darkgray"> Proficient with using Git and GitHub as a version control system for managing projects. </p>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="bg-white mb-4 p-4 rounded-pill">
+                        <div class="icon-updated mb-4 rb"><i class="fab fa-css3-alt icontwo"></i></div>
+                        <h3 class="text-uppercase font-weight-bold"> HTML & CSS</h3>
+                        <p class="text-black"> 1 year </p>
+                        <p class="text-darkgray"> Adequate at using HTML and CSS for web-development. </p>
+                        <br>
+                    </div>
+                </div>
+
+    </section>
+
+    <!-- Portfolio Section-->
+    <!-- Resume Experience Section-->
+    <section id="portfolio" class="bg-light-blue">
+        <div class="container">
+            <header class="text-center mb-5">
+                <!-- <h2 class="lined text-uppercase"> Resume / Work Experiences </h2> -->
+                <h2 class="text-center"> Research / Work Experiences </h2>
+            </header>
+            <!-- <div class="row align-items-center"> -->
+
+            <div class="col-lg-15">
+                <div class="bg-white mb-4 p-4 align-items-center rounded-mlg">
+                    <h4 class="text-uppercase font-weight-bold text-center"> Undergaduate Student Researcher @ <a
+                            href="https://www.acmcyber.com/" target="_blank"> UCLA - ACM Cyber CSRF</a> </h4>
+                    <h5 class="text-center"> Los Angeles, CA &nbsp;&nbsp;&nbsp; June 2024 - September 2024</h4>
+                        <p class="small text-darkgray">
+                        <ul>
+                            <li> Skills: Backend Developer, Blockchain, Smart Contracts, Cyber Security, Research, Group/Software Collaboration </li>
+                            <li> Developed Ethereum based smart contracts, written in Solidity, used to create Package Managers which allow for safe sharing of software across its users </li>
+                            <li> Developed backend features using Flask, to store package information and retrieve package files, which culminated in a Full Stack web application where users could securely browse software packages </li>
+                            <li> Researched ways to increase software supply chain security through the use of smart contracts and blockchain security </li>
+                            <li> Reviewed by 2024 IEEE MIT Undergraduate Research Technology Conference (URTC) </li>
+                        </ul>
+                        <p>
+                </div>
+            </div>
+
+            <div class="col-lg-15">
+                <div class="bg-white mb-4 p-4 align-items-center rounded-mlg">
+                    <h4 class="text-uppercase font-weight-bold text-center"> AI Fellow @ <a
+                            href="https://www.scripps.edu/zorrilla/" target="_blank"> AI Safety</a> </h4>
+                    <h5 class="text-center"> Los Angeles, CA &nbsp;&nbsp;&nbsp; January 2024 - May 2024</h4>
+                        <p class="small text-darkgray">
+                        <ul>
+                            <li> Took part in the Transformer Fellowship, where I was taught concepts about deep learning, neural networks, and AI </li>
+                            <li> Culminated in a project where I recreated GPT2 using transformers</li>
+                        </ul>
+                        <p>
+                </div>
+            </div>
+
+            <!-- 
+            <div class="col-lg-15">
+                <div class="bg-white mb-4 p-4 align-items-center rounded-mlg">
+                    <h4 class="text-uppercase font-weight-bold text-center"> IGNITE Fellow @ <a
+                            href="https://www.teachforamerica.org/" target="_blank">
+                            Teach For America </a> </h4>
+                    <h5 class="text-center"> Teach For America &nbsp;&nbsp;&nbsp; Remote &nbsp;&nbsp;&nbsp; September
+                        2021 - Present</h4>
+                        <p class="small text-darkgray">
+                        <ul>
+                            <li>Teach For America's initiative is to let children recieve an excellent and equitable
+                                education</li>
+                            <li> My role is to help teachers educate their students by leading a small cohort of four to
+                                five
+                                students where we will review and practice class material. </li>
+                            <li> 2021-2022 school year taught 7th and 8th grade students middle school mathematics.</li>
+                            <li>2022-2023 school year teaching 3rd grade students elementary reading</li>
+                        </ul>
+                        <img class="center-img-2 es" src="./images/logo-teachforamerica.png">
+                        <p>
+                </div>
+            </div> 
+            -->
+
+    </section>
+
+
+<!--    
+    
+    <section id="text" class="bg-beige">
+        <div class="container">
+            <header class="text-center mb-5">
+                <h2 class="text-center"> Project Work </h2>
+
+                <h4> Below are some of the projects I've worked on both for research and in my own time.</h4>
+                <br>
+                <br>
+                <br>
+            
+            </header>
+                <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="bg-white mb-4 p-4 align-items-center">
+                        <h4 class="text-uppercase font-weight-bold text-center"> Fake Amazon Reviews (FARS) </h4>
+                        <p class="text-darkgray"> <a href="https://github.com/sukikrishna/FARS" target="_blank">
+                                FARS</a> is a 4 person team I led to
+                            work on a Data Science/ML project upon the US Amazon Customer Reviews dataset from Amazon
+                            (2014-2015)
+                            archives to predict whether a given review is verified or unverified.
+                        </p>
+                        <p class=" text-darkgray"> Developed KNN (K-Nearest Neighbors) and Bigrams & Random Forest
+                            Classification ML
+                            models for this analysis. Optimized the KNN classifier by working on feature selection and
+                            data cleaning -
+                            achieved around 70% test accuracy for both models
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="bg-white mb-4 p-4">
+                        <h4 class="text-uppercase font-weight-bold text-center"> Interaction Network (IN) </h4>
+                        <p class=" text-darkgray"> This project under the Duarte Lab investigates a kind of type of
+                            graph-based
+                            autoencoder and randomized neural network architecture, the interaction
+                            network autoencoder and variational autoencoder (ie. CNN, DNN). The objective is to
+                            evaluate, against other
+                            kinds of autoencoder and variational autoencoder structures, to see which structures can be
+                            best optimized
+                            to fit in an FPGA (to meet L1 trigger requirements) that is also good at anomaly detection.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="bg-white mb-4 p-4">
+                        <h4 class="text-uppercase font-weight-bold text-center"> National Park Size & Diversity Analysis
+                        </h4>
+                        <p class=" text-darkgray"> This <a
+                                href="https://github.com/sukikrishna/ParkSize_Diversity_Analysis" target="_blank">
+                                project
+                            </a> is a simple linear regression analysis done to look into whether there is a
+                            relationship between
+                            national park size and diversity in each park done upon open source <a
+                                href="https://www.kaggle.com/datasets" target="_blank"> Kaggle </a> datasets.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="bg-white mb-4 p-4">
+                        <h4 class="text-uppercase font-weight-bold text-center"> Effects of Food Accessibility on Type
+                            II Diabetes </h4>
+                        <p class=" text-darkgray"> Part of 5 person team that explored the prevalence of Type II
+                            diabetes in accordance
+                            to Californian adults' access to fresh foods, their race, and their gender in 2017.</p>
+                        <p class=" text-darkgray"> The ordinal data was processed into seven column elements through
+                            one-hot encoding:
+                            if they have diabetes, type of diabetes, their accessibility to fresh foods, their
+                            accessibility to
+                            affordable fresh foods, race, if they are prediabetic, and if they are a female. We
+                            performed univariate
+                            analysis to determine the distribution of data among each element as well as using
+                            multivariate analysis and
+                            scatterplot to determine the relationship between them. Furthermore, we used a decision tree
+                            in order to
+                            further analyze the relationship of diabetes and prediabetes among those other elements.
+                        </p>
+                        <p class=" text-darkgray"> Our results showed that there is a high volume of adults who have
+                            access to
+                            affordable fresh foods, however there is a higher prevalence of type II diabetes for those
+                            have greater
+                            accessibility to affordable fresh foods.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="bg-white mb-4 p-4 align-items-center">
+                        <h4 class="text-uppercase font-weight-bold text-center"> Song Visualizer (Spotify) </h4>
+                        <p class=" text-darkgray"> This is a project I have recently started on which by taking in a
+                            song title and
+                            corresponding artist name, will generate a rating for the overall mood/vibe of the song
+                            based on various
+                            musical indicators and the sentiment of the song lyrics.
+                        </p>
+                        <p class=" text-darkgray"> My goal is to qualitatively describe the song using an
+                            "emoji"/emotion visual so that
+                            the user can filter through what kinds of songs they want to listen to by how they're
+                            feeling. Plan to
+                            showcasethe analysis through an online web dashboard and goal for deployment for Nov 2022.
+                        </p>
+                        <p class=" text-darkgray"> Inspiration for this idea came when I was having difficulty finding
+                            songs on my
+                            playlist that were of a particular mood from an unorganized playlist (Liked Songs) by style
+                            or genre.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="bg-white mb-4 p-4">
+                        <h4 class="text-uppercase font-weight-bold text-center"> Online Article Classifier
+                        </h4>
+                        <p class=" text-darkgray"> This <a href="https://github.com/Hindsight-Intern/Final-Classifier"
+                                target="_blank">project</a>
+                            incorporated web scraping using BeautifulSoup and predictive machine learning using a
+                            HuggingFace <a href="https://huggingface.co/facebook/bart-large"
+                                target="_blank">zero-shot-classification</a> model which would scrape
+                            an article, determine what topic that article is most correlated to and label that article
+                            under 1 of 13
+                            topic categories : "politics", "international news", "celebrity", "sports", "health",
+                            "nutrition",
+                            "fitness", "beauty", "business", "economy", "finance", "technology", "science",
+                            "lifestyle".
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="bg-white mb-4 p-4 align-items-center">
+                        <h4 class="text-uppercase font-weight-bold text-center"> Personal Portfolio </h4>
+                        <p class=" text-darkgray"> This <a href="https://github.com/sukikrishna/sukikrishna.github.io"
+                                target="_blank"> personal portfolio</a> is one of my first projects getting to work with
+                            and learn how to use HTML, CSS, and JavaScript to create a nice deliverable.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="bg-white mb-4 p-4 align-items-center">
+                        <h4 class="text-uppercase font-weight-bold text-center"> Dog Breed Image Classifier </h4>
+                        <p class=" text-darkgray"> Built ML model or image classifier for dog breed classification using
+                            Tensorflow and Keras.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        <section id="papers" class="bg-light-blue">
+            <div class="container">
+                <header class="text-center mb-5">
+                    <h2 class="text-center"> Research Papers</h2>
+                </header>
+                <div class="bg-white mb-4 p-4 align-items-center">
+                    <h4 class="font-weight-bold text-center"> <a href="https://arxiv.org/abs/2111.12849"
+                            target="_blank">
+                            "Particle Graph Autoencoders and Differentiable, Learned Energy Mover's Distance" </a> </h4>
+                </div>
+            </div>
+        </section>
+    -->
+    
+
+    </section>
+    <!-- Contact Section-->
+    <!-- USING FORMSPREE - need to register for an account and create new project -->
+    <section id="contact" class="bg-beige">
+        <div class="container">
+            <header class="text-center mb-5">
+                <!-- <h2 class="text-uppercase">Contact Me!</h2> -->
+                <h2 class="text-uppercase">Contact Me :)</h2>
+                <br>
+                <h4>Email: sanjaykrishn@g.ucla.edu ; sanjay.krishnas@gmail.com</h4>
+                <br>
+                <h5> If you may have any questions for me, opportunities to share, or would like to chat, please let me
+                    know by email or by filling out the messaging form fields below! </h5>
+            </header>
+
+            <!-- CAN ADD ORGANIZATION/PROFESSION??? -->
+            <div class="row">
+                <div class="col-lg-3">
+                    <form class="contact-form" method="POST" action="https://formspree.io/f/xeqdggwo">
+                        <label for="firstName"> Name </label>
+                        <input id="firstName" type="text" name="name" placeholder="Enter First & Last Name"
+                            class="form-control">
+                </div>
+
+                <div class="col-lg-4">
+                    <form class="contact-form" method="POST" action="https://formspree.io/f/xeqdggwo">
+                        <label for="lastName"> Organization/Profession </label>
+                        <input id="lastName" type="text" name="name"
+                            placeholder="i.e. Student, Software Engineer, Researcher" class="form-control">
+                </div>
+
+                <div class="form-group col-lg-5">
+                    <label for="lastName"> Email </label>
+                    <input id="lastName" type="text" name="_replyto" placeholder="Enter your email"
+                        class="form-control">
+                </div>
+
+                <!-- <div class="form-group col-lg-12">
+                  <label for="email"> Your Email</label>
+                  <input id="email" type="email" name="email" placeholder="Enter your email" class="form-control">
+                </div> -->
+                <div class="form-group col-lg-12">
+                    <label for="message"> Message </label>
+                    <textarea id="message" name="message" placeholder="Enter your message" rows="4"
+                        class="form-control"></textarea>
+                </div>
+                <div class="form-group col-lg-12">
+                    <button type="submit" value="Send" class="btn btn-outline-primary w-100">Send Form</button>
+                </div>
+            </div>
+            </form>
+
+            <!-- <ul class="mb-0 list-inline text-center">
+                <li class="list-inline-item"><a href="https://github.com/VaniSachdev"
+                        class="social-link social-link-google-plus"><i class="fab fa-github"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/in/vani-sachdev-7a5576178/"
+                        class="social-link social-link-instagram"><i class="fab fa-linkedin"></i></a></li>
+                <li class="list-inline-item"><a href="mailto:vsachdev@g.hmc.edu"
+                        class="social-link social-link-email"><i class="fas fa-envelope"></i></a></li>
+                <li class="list-inline-item"><a href="files/sachdev_resume.pdf" class="social-link social-link-email"><i
+                            class="fas fa-file"></i></a></li>
+            </ul> -->
+        </div>
+    </section>
+
+    <!-- Adding small section in the bottom for copyright labelmark -->
+    <footer class="py-4">
+        <div class="container">
+            <!-- <div class="row">
+                <div class="col-lg-6 text-center text-lg-left">
+                    <p class="mb-0 text-gray">&copy; 2022 Sukanya Krishna </p>
+                </div>
+                <div class="col-lg-6 text-center text-lg-right">
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <span class="copyright">Copyright &copy; Sanjay Krishna 2024
+                    </span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="mb-0 list-inline text-center">
+                        <li class="list-inline-item"><a href="https://github.com/SanjayKrishnas" target="_blank"
+                                class="social-link social-link-google-plus"><i class="fab fa-github"></i></a></li>
+
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/sanjay-krishna-05020396/"
+                                target="_blank" class="social-link social-link-instagram"><i
+                                    class="fab fa-linkedin"></i></a></li>
+
+                        <!-- <li class="list-inline-item"><a href="https://www.linkedin.com/in/sukanya-krishna-a7b754198/" target="_blank"
+                                class="social-link social-link-instagram"><i class="fab fa-facebook"></i></a></li> -->
+                    </ul>
+                </div>
+            </div>
+    </footer>
+
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/lightbox2/js/lightbox.min.js"></script>
+    <script src="vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"> </script>
+    <script src="js/front.js"></script>
+
+    <!-- Script to add icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</body>
+
+</html>
+
+<!-- https://www.educba.com/html-vs-javascript/ -->
